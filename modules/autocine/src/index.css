@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* ---- Light theme overrides (global, minimal) ---- */
+:root { color-scheme: light; }
+html, body { background: #f1f5f9; color: #0f172a; }
+
+/* Backgrounds: dark zinc -> light slate */
+.bg-zinc-950, .bg-zinc-950\/80, .bg-zinc-950\/90, .bg-zinc-950\/60 { background-color: #ffffff !important; }
+.bg-zinc-900, .bg-zinc-900\/50, .bg-zinc-900\/60, .bg-zinc-900\/40, .bg-zinc-900\/30, .bg-zinc-900\/70 { background-color: #f8fafc !important; }
+.bg-zinc-800, .bg-zinc-850 { background-color: #e2e8f0 !important; }
+.bg-black\/85, .bg-black\/75 { background-color: rgba(255,255,255,.92) !important; }
+.bg-black { background-color: #0f172a !important; } /* keep video canvas dark */
+
+/* Borders */
+.border-zinc-800, .border-zinc-800\/80, .border-zinc-800\/60, .border-zinc-700\/80, .border-zinc-700, .border-zinc-900 { border-color: #e2e8f0 !important; }
+
+/* Text */
+.text-zinc-100, .text-zinc-200 { color: #0f172a !important; }
+.text-zinc-300, .text-zinc-400 { color: #475569 !important; }
+.text-zinc-500, .text-zinc-600 { color: #94a3b8 !important; }
+
+/* Accent text stays: amber/blue/emerald/rose keep */
+.no-scrollbar::-webkit-scrollbar { display: none; }

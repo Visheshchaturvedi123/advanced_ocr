@@ -1,0 +1,7 @@
+{
+  "name": "Local Batch Image Optimizer",
+  "description": "Production-ready desktop batch image optimizer for compressing and converting large image collections into high-quality WebP files with zero risk to originals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

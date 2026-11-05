@@ -1,0 +1,6 @@
+{
+  "name": "AutoCine AI Editor",
+  "description": "Local-first Windows desktop application for automatic music-synchronized photo video editing with FFmpeg rendering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

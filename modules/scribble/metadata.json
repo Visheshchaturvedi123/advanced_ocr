@@ -1,0 +1,6 @@
+{
+  "name": "Whiteboard Animation Studio",
+  "description": "Interactive whiteboard animation studio with image-to-sketch tracing, script-to-video narration, and a multi-scene panning engine across an infinite whiteboard canvas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

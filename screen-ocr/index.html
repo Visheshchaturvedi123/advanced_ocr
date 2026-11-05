@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brahma Screen OCR</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand">BRAHMA</div>
+        <div class="product">SCREEN OCR</div>
+      </div>
+      <div class="top-actions">
+        <span class="hotkey" id="hotkey">Ctrl + Shift + O</span>
+        <button class="btn ghost" id="repeat" title="Capture the last region again">Repeat region</button>
+        <button class="btn primary" id="capture">Capture screen region</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="column preview-column">
+        <div class="card preview-card">
+          <div class="card-head">
+            <span>Capture</span>
+            <span class="meta" id="capture-meta">No capture yet</span>
+          </div>
+          <div class="dropzone" id="dropzone">
+            <img id="preview" alt="Captured region" hidden />
+            <div class="empty" id="empty">
+              <div class="target"></div>
+              <div class="empty-title">Point at anything outside Chrome</div>
+              <div class="empty-sub">Press Ctrl + Shift + O, then drag over text from any app.</div>
+            </div>
+          </div>
+          <div class="source-actions">
+            <button class="btn subtle" id="open-image">Open image</button>
+            <button class="btn subtle" id="paste-image">Paste image</button>
+            <span class="source-hint">or drop an image here</span>
+          </div>
+        </div>
+
+        <div class="card history-card">
+          <div class="card-head">
+            <span>Recent OCR</span>
+            <button class="link-btn" id="clear-history">Clear</button>
+          </div>
+          <div class="history-list" id="history">
+            <div class="history-empty" id="history-empty">Recognized text will appear here.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="column result-column">
+        <div class="card controls-card">
+          <div class="controls-row">
+            <label class="field">
+              <span>Language</span>
+              <select id="language">
+                <option value="eng">English</option>
+                <option value="hin">Hindi</option>
+                <option value="eng+hin">Mixed English + Hindi</option>
+              </select>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="math" />
+              <span>Detect equations</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="table-mode" />
+              <span>Table mode</span>
+            </label>
+            <label class="field table-format-field" id="table-format-field" hidden>
+              <span>Table output</span>
+              <select id="table-format">
+                <option value="markdown">Markdown</option>
+                <option value="tsv">TSV</option>
+              </select>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="auto-copy" />
+              <span>Auto-copy text</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="clean-lines" />
+              <span>Collapse blank lines</span>
+            </label>
+          </div>
+          <div class="controls-row controls-bottom">
+            <button class="btn accent" id="run" disabled>Run OCR</button>
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span id="status">Ready</span>
+                <span id="percent">0%</span>
+              </div>
+              <div class="progress-track"><div class="progress-bar" id="progress"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card result-card">
+          <div class="card-head">
+            <span>Extracted text</span>
+            <span class="meta" id="word-count">0 characters</span>
+          </div>
+          <textarea
+            id="result"
+            spellcheck="false"
+            placeholder="OCR output appears here. You can edit it before copying or saving."
+          ></textarea>
+          <div class="result-actions">
+            <div class="result-note" id="result-note">Same Tesseract.js LSTM engine used by the Brahma extension.</div>
+            <div class="button-row">
+              <button class="btn subtle" id="copy" disabled>Copy</button>
+              <button class="btn subtle" id="save-txt" disabled>Save .txt</button>
+              <button class="btn subtle" id="save-md" disabled>Save .md</button>
+              <button class="btn subtle" id="save-tsv" disabled hidden>Save .tsv</button>
+              <button class="btn subtle" id="clear-result">Clear</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

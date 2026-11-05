@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select OCR region</title>
+    <link rel="stylesheet" href="overlay.css" />
+  </head>
+  <body>
+    <div id="shade-top" class="shade"></div>
+    <div id="shade-bottom" class="shade"></div>
+    <div id="shade-left" class="shade"></div>
+    <div id="shade-right" class="shade"></div>
+
+    <div id="selection" hidden>
+      <span id="size"></span>
+      <i class="corner tl"></i>
+      <i class="corner tr"></i>
+      <i class="corner bl"></i>
+      <i class="corner br"></i>
+    </div>
+
+    <div class="hint" id="hint">
+      <div class="brand">BRAHMA SCREEN OCR</div>
+      <div class="title">Drag a box around the text</div>
+      <div class="sub">Works on any app outside Chrome. Press Esc to cancel.</div>
+    </div>
+
+    <script src="overlay.js"></script>
+  </body>
+</html>
